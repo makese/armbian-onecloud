@@ -152,7 +152,8 @@ jobs:
 
       - name: "Apply patch #3774 and #4077"
         run: |
-          curl -L -O "https://github.com/armbian/build/pull/{3774,4077}.patch"
+          curl -L -O "https://raw.githubusercontent.com/hzyitc/armbian-onecloud/readme/3774.patch"
+          curl -L -O "https://github.com/armbian/build/pull/4077.patch"
           for file in *.patch; do
             patch --batch -p1 -N <"$file"
           done
@@ -188,7 +189,7 @@ jobs:
         run: |
           sudo apt install img2simg
 
-          ver="v0.3.0"
+          ver="v0.3.1"
           curl -L -o ./AmlImg https://github.com/hzyitc/AmlImg/releases/download/$ver/AmlImg_${ver}_linux_amd64
           chmod +x ./AmlImg
 
